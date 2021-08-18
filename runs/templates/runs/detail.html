@@ -1,0 +1,13 @@
+{% extends 'startpage/base_template.html' %}
+{% block content%}
+<div class="container text-center">
+    <h1>{{ run.title }}</h1>
+    <h4>Distance: {{ run.distance }}km</h4>
+    <h4>Time: {{ run.time }}</h4>
+    <h4>Average Pace: {{ run.avg_pace }}</h4>
+    <h4>Elevation gain: {{ run.elevation_gain }}m</h4>
+    <img src="{{ run.img.url }}" alt="run_stats">
+    <br>
+    <a class="btn btn-primary" href="{% url 'runs:all_runs' %}" role="button">Back to all runs</a>
+</div>
+{% endblock%}

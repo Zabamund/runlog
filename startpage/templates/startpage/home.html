@@ -1,0 +1,13 @@
+{% extends 'startpage/base_template.html' %}
+{% block content%}
+{% load static %}
+<div class="container text-center">
+    <h1>Yet another running site</h1>
+    <img src="{% static 'startpage/VO2max.png'%}" alt="">
+    <br>
+    <a class="btn btn-primary" href="{% url 'runs:all_runs' %}" role="button">All runs</a>
+    <h2>Latest run</h2>
+    <h1>{{ last_run }}</h1>
+    <img src="{{ last_run.img.url }}" alt="run">
+</div>
+{% endblock%}

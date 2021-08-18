@@ -1,0 +1,16 @@
+{% extends 'startpage/base_template.html' %}
+{% block content%}
+<div class="container text-center">
+    <h1>All Runs</h1>
+    <a class="btn btn-primary" href="{% url 'home' %}" role="button">Home</a>
+    <h3>There {{ all_runs.count | pluralize:"is,are" }} {{ all_runs.count }} run{{ all_runs.count | pluralize}}</h3>
+    {% for run in all_runs %}
+    <p>----------</p>
+    <a href="{% url 'runs:detail' run.id %}">
+        <h3>{{ run.title }}</h3>
+    </a>
+    <h5>Distance: {{ run.distance }}km</h5>
+    <h5>Pace: {{ run.avg_pace }}</h5>
+    {% endfor %}
+</div>
+{% endblock%}
